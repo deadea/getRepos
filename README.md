@@ -1,1 +1,3 @@
-# getRepos
+# getRepos pages:
+
+https://deadea.github.io/getRepos/
