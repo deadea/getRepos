@@ -15,7 +15,7 @@ const debounce = (cb, debounceTime) => {
 
 const eventHandler = debounce((text) => {
   hideAutocomplete();
-  if (text.length > 0) {
+  if (text.trim() !== "") {
     searchRepos(text)
       .then((repos) => {
         repos.forEach((repository) => {
@@ -61,8 +61,7 @@ const createCard = (repository) => {
 
   buttonClose.addEventListener("click", () => {
     cardItem.remove();
-  }),
-    { once: true };
+  }, {once: true})
   return cardItem;
 };
 
@@ -78,7 +77,7 @@ function addAutocomplete(repository) {
     cardList.insertAdjacentElement("afterbegin", createCard(repository));
 
     search.value = null;
-  });
+  }, {once: true});
 }
 
 function hideAutocomplete() {
@@ -87,3 +86,6 @@ function hideAutocomplete() {
     element.remove();
   }
 }
+
+
+
